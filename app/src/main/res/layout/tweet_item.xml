@@ -30,4 +30,12 @@
         android:layout_alignStart="@+id/tvUserName"
         android:text="This is the tweet body." />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8m"
+        android:id="@+id/tvTimeStamp"
+        android:layout_above="@+id/tvBody"
+        android:layout_toRightOf="@+id/tvUserName" />
+
 </RelativeLayout>
