@@ -33,6 +33,8 @@ public class TwitterClient extends OAuthBaseClient {
         super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
     }
 
+    //since_id Returns results with an ID greater than (that is, more recent than) the specified ID.
+    // 12345
     public void getHomeTimeline(AsyncHttpResponseHandler handler){
         String apiUrl =getApiUrl("statuses/home_timeline.json");
         RequestParams params = new RequestParams();
@@ -40,6 +42,17 @@ public class TwitterClient extends OAuthBaseClient {
         client.get(apiUrl, params, handler) ;
 
     }
+
+    //max_id - Returns results with an ID less than (that is, older than) or equal to the specified ID.
+    // 54321
+    public void getPrecedingTweet(long id, AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("statuses/home_timeline.json");
+        RequestParams params = new RequestParams();
+        params.put("max_id", Long.toString(id));
+        client.get(apiUrl,params,handler);
+
+    }
+
 
     // CHANGE THIS
     // DEFINE METHODS for different API endpoints here
